@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      New Workout
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="addWorkout()" #f="ngForm">
+    <ion-item>
+      <ion-label>Title</ion-label>
+      <ion-input type="text" name="title" [(ngModel)]="title" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Number of Sets</ion-label>
+      <ion-input type="range" name="sets" min="1" max="10" [(ngModel)]="sets" required></ion-input>
+    </ion-item>
+    <button ion-button block type="submit" [disabled]="!f.valid">Add Workout</button>
+  </form>
+</ion-content>

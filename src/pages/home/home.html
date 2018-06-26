@@ -1,14 +1,24 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Workout Timer
     </ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="newWorkout()"><ion-icon name="add"></ion-icon></button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-list>
+    <button ion-item *ngFor="let w of workouts, let i = index" (click)="goToWorkout(w)">
+        {{w.title}}
+        <button ion-button icon-only item-end (click)="deleteWorkout(i)">
+            <ion-icon name="close"></ion-icon>
+        </button>
+    <button ion-button icon-only item-end (click)="editWorkout(w)">
+            <ion-icon name="create"></ion-icon>
+        </button>
+    </button>
+  </ion-list>
 </ion-content>
